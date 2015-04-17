@@ -1,0 +1,25 @@
+.minigallery { /* main container per gallery */
+	margin: 0 0 10px 0;
+}
+.minigallery h1 { /* title - if added */
+	font-size: 18px;
+}
+.minigallery .mgdescription {
+	font-style: italic;
+	margin: 10px 0;
+}
+
+.minigallery .mgimages { /* the images container. */
+
+}
+.minigallery a {	/* the thumbnail images, floating left to position them next to eachother */
+	position: relative;
+	float: left;
+}
+.minigallery img {	/* the thumbnails could be styled and positioned here */
+	border:1px solid #fff; 
+	margin:0 2px 5px 0 ;
+}
+.minigallery .clr { /* used to clear the floating images */
+	clear:both;
+}

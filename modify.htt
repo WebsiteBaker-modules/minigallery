@@ -1,0 +1,68 @@
+<!-- BEGIN main_block -->
+<form action="{WB_URL}/modules/minigallery/save.php" method="post" onsubmit="$('#mgsettings-{SECTION_ID},#mgupload-{SECTION_ID},#mgimages-{SECTION_ID}').hide(); $('#mgwait-{SECTION_ID}').show();" enctype="multipart/form-data" >
+	<input type="hidden" name="page_id" value="{PAGE_ID}" />
+	<input type="hidden" name="section_id" value="{SECTION_ID}" />
+	<table cellpadding="3" cellspacing="0" border="0" >
+		<tr>
+			<td colspan="2"><h2>{TEXT_MINIGALLERY}</h2></td>
+			<td>
+				<a href="#" onclick=" $('#mgsettings-{SECTION_ID}').toggle();$('#mgupload-{SECTION_ID}  ,#mgimages-{SECTION_ID}').hide();return false;">{TEXT_SETTINGS}</a> | 
+				<a href="#" onclick=" $('#mgupload-{SECTION_ID}').toggle()  ;$('#mgsettings-{SECTION_ID},#mgimages-{SECTION_ID}').hide();return false;">{TEXT_UPLOAD}</a> | 
+				<a href="#" onclick=" $('#mgimages-{SECTION_ID}').toggle()  ;$('#mgupload-{SECTION_ID},#mgsettings-{SECTION_ID}').hide();return false;">{CURRENT}</a>
+			</td>
+		</tr>
+		<tr><td colspan="2"><small>{TEXT_SUBTITLE}</small></td></tr>
+	</table>
+	<table id="mgsettings-{SECTION_ID}" style="display:none; border:3px solid #28609B;" cellpadding="3" cellspacing="3" border="0" >
+		<tr><td colspan="3"><h2>{TEXT_MINIGALLERY} - {TEXT_SETTINGS}</h2></td></tr>
+		<tr><td>{TEXT_NAME}: </td><td><input size="50" type="text" name="name" value="{NAME}" /></td><td>{HELP_NAME}</td></tr>
+		<tr><td>{TEXT_DESC}: </td><td><input size="50" type="text" name="description" value="{DESCRIPTION}" /></td><td>{HELP_DESC}</td></tr>
+		<tr><td>{TEXT_MAXSIZE}: </td><td><input size="5" type="text" name="maxsize" value="{MAXSIZE}" />px </td><td>{HELP_MAXSIZE}</td></tr>
+		<tr><td>{TEXT_MAXTHUMB}: </td><td><input size="5" type="text" name="thumbsize" value="{THUMBSIZE}" />px</td><td>{HELP_MAXTHUMB}</td></tr>
+		<tr><td>{TEXT_RATIO}: </td><td><input size="5" type="checkbox" name="ratio" {RATIO} /></td><td>{HELP_RATIO}</td></tr>
+		<tr><td>{TEXT_ADDCLASS}: </td><td><input type="text" name="class" value="{CLASS}" /></td><td>{HELP_ADDCLASS}</td></tr>
+		<tr><td>{TEXT_ADDREL}: </td><td><input type="text" name="rel" value="{REL}" /></td><td>{HELP_ADDREL}</td></tr>
+		<tr><td>{TEXT_ADDOUTPUT}: </td><td><input type="checkbox" name="addscripts" {ADDSCRIPTS} /> </td><td>{HELP_ADDOUTPUT}</td></tr>
+		<tr>
+			<td><input type="submit" value="{TEXT_SAVE}" style="width: 200px; margin-top: 5px;" /></td>
+			<td colspan="2" align="right"><input type="button" value="{TEXT_CANCEL}" onclick="javascript: window.location = 'index.php';" style="width: 200px; margin-top: 5px;" /></td>
+		</tr>
+	</table>
+	<table id="mgupload-{SECTION_ID}" style="display:none;border:3px solid #28609B;" cellpadding="3" cellspacing="3" border="0" width="100%">
+		<tr><td colspan="4"><h2>{TEXT_MINIGALLERY} - {TEXT_UPLOAD}</h2></td></tr>
+		<tr><td colspan="4">{NOTE}</td></tr>
+		<tr><td colspan="4"><label>{REMOVECUR} <input type="checkbox" name="removecur" /></label></td></tr>
+		<tr>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-1" /></td>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-2" /></td>
+		</tr>
+		<tr>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-3" /></td>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-4" /></td>
+		</tr>
+		<tr>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-5" /></td>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-6" /></td>
+		</tr>
+		<tr>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-7" /></td>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-8" /></td>
+		</tr>
+		<tr>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-9" /></td>
+			<td>{FILE} </td><td><input size="50" type="file" name="image-10" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><input type="submit" value="{TEXT_SAVE}" style="width: 200px; margin-top: 5px;" /></td>
+			<td colspan="2" align="right"><input type="button" value="{TEXT_CANCEL}" onclick="javascript: window.location = 'index.php';" style="width: 200px; margin-top: 5px;" /></td>
+		</tr>
+	</table>
+	<table id="mgimages-{SECTION_ID}" style="display:none;border:3px solid #28609B;" cellpadding="3" cellspacing="3" border="0" width="100%">
+		<tr><td ><h2>{TEXT_MINIGALLERY} - {CURRENT}</h2></td></tr>
+		<tr><td >{IMAGES}</td></tr>
+	</table>
+	<table id="mgwait-{SECTION_ID}" style="display:none;border:3px solid #28609B;" cellpadding="3" cellspacing="3" border="0" width="100%">
+		<tr><td ><strong>{UPLOADING}</strong></td></tr>
+	</table>
+</form>
+<!-- END main_block -->
