@@ -2,14 +2,14 @@
 /**
  *
  * @category        modules
- * @package         minigallery
+ * @package         minigallery v2
  * @author          Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         0.2
- * @lastmodified    19 aug 2011
+ * @version         2.1.0
+ * @lastmodified    Januari 25, 2015
  *
  */
 
@@ -28,6 +28,6 @@ if (!function_exists('db_add_field')) {
 }
  
 // Safely add field that was added after v0.1
-$table_data = TABLE_PREFIX."mod_minigallery";
-db_add_field("ratio", $table_data, "INT(1) NOT NULL DEFAULT '1'");
+$table_data = TABLE_PREFIX."mod_minigal2";
+//db_add_field("ratio", $table_data, "INT(1) NOT NULL DEFAULT '1'");
 

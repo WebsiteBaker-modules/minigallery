@@ -2,16 +2,17 @@
 /**
  *
  * @category        modules
- * @package         minigallery
+ * @package         minigallery v2
  * @author          Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         0.2
- * @lastmodified    19 aug 2011
+ * @version         2.1.0
+ * @lastmodified    Januari 25, 2015
  *
  */
+
 header('Location: ../index.php');
 
 ?>

@@ -1,0 +1,28 @@
+.minigal2 h1.mgtitle { /* title - if added */
+
+}
+.minigal2 .mgdescription {
+	font-style: italic;
+}
+
+.minigal2 .mgimages { /* the images container. */
+
+}
+.minigal2 a {	/* the thumbnail images, floating left to position them next to eachother */
+	position: relative;
+	text-decoration: none;
+}
+.minigal2 a:hover {
+	text-decoration: none;
+}
+
+.minigal2 img {	/* the thumbnails could be styled and positioned here */
+	margin:0 5px 5px 0 ;
+}
+.minigal2 .mgclr { /* used to clear the floating images */
+	clear:both;
+}
+
+#lightcase-nav a, #lightcase-nav a:hover {
+	text-decoration: none;
+}

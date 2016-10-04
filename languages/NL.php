@@ -1,20 +1,20 @@
-<?php 
+<?php
 /**
  *
  * @category        modules
- * @package         minigallery
+ * @package         minigallery v2
  * @author          Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         0.2
- * @lastmodified    19 aug 2011
+ * @version         2.0.2
+ * @lastmodified    December 1, 2015
  *
  */
 
 
-$MG['MINIGALLERY'] = 'MiniGallerij';
+$MG['MINIGALLERY'] = 'MiniGallerij v2';
 $MG['SETTINGS'] = 'Instellingen';
 $MG['UPLOAD'] = 'Upload Afbeeldingen';
 $MG['SUBTITLE'] = 'Mini afbeeldingen gallerij';
@@ -25,7 +25,7 @@ $MG['MAXTHUMB'] = 'Max thumb-grootte';
 $MG['RATIOTHUMB'] = 'Thumbnails vierkant maken';
 $MG['ADDCLASS'] = 'Toegevoegde CLASS voor lightbox';
 $MG['ADDREL'] = 'Toegevoegde REL voor lightbox';
-$MG['ADDOUTPUT'] = 'jQuery en fancybox scripts toevoegen';
+$MG['ADDOUTPUT'] = 'Lightcase scripts toevoegen';
 $MG['HELP_NAME'] = '<em>Laat leeg om geen titel toe te voegen</em>';
 $MG['HELP_DESCRIPTION'] = '<em>Laat leeg om geen beschrijving toe te voegen</em>';
 $MG['HELP_MAXSIZE'] = '<em>Let op: aanpassen van grootte wordt alleen bij uploaden gedaan!</em>';
@@ -39,3 +39,22 @@ $MG['FILE'] = 'Bestand';
 $MG['CURRENT'] = 'Huidige afbeeldingen';
 $MG['REMOVECUR'] = 'Verwijder voor de upload ALLE huidige afbeeldingen?';
 $MG['UPLOADING'] = 'Uploaden en herschalen, een ogenblik a.u.b...';
+
+
+$MG['LIGHTCASE'] = 'Lightcase instellingen';
+$MG['LIGHTCASESUB'] = ' - worden alleen gebruikt als de lightcase scripts geactiveerd zijn - ';
+$MG['AUTOPLAY'] = 'Aktiveer automatische slideshow';
+$MG['HELP_AUTOPLAY'] = 'Als deze optie is geselecteerd zullen de afbeeldingen automatisch in een slideshow getoond worden';
+$MG['TRANSITION'] = 'Overgang effecten';
+$MG['HELP_TRANSITION'] = 'Het effect wat gebruikt wordt bij het wisselen van de afbeeldingen';
+$MG['AUTOPLAY_INT'] = 'Slideshow pauzes (seconden)';
+$MG['HELP_AUTOPLAY_INT'] = 'De pauze tussen twee afbeeldingen in de slideshow';
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
