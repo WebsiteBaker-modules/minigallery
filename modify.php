@@ -2,14 +2,14 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2
- * @author          Ruud Eisinga
+ * @package         minigallery v2.2
+ * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         2.1.0
- * @lastmodified    Januari 25, 2015
+ * @version         2.2.0
+ * @lastmodified    June 17, 2017
  *
  */
 
@@ -44,17 +44,12 @@ $rel = $settings['rel'];
 $interval = $settings['interval'];
 $autoplay = $settings['autoplay'];
 $transition = $settings['transition'];
-
+$upload_limit = minigallery_get_upload_limit();
 //build images
 $imglist = '';
 $curdir = $section_id."/";
-$images = getMiniGalleryImages($basedir,$curdir); 
-if($images) {
-	foreach($images as $img) { 
-		$imglist .= '<img style="margin:03px;" src="'.$baseurl.$curdir.'thumbs/'.basename($img['file']).'" alt="'.$baseurl.$curdir.basename($img['file']).'" title="'.$baseurl.$curdir.basename($img['file']).'">'; 
-	} 
-}
-
+$imglist = getMiniGalleryImageList($basedir,$curdir,$baseurl,$section_id);
+ 
 $tr = array('none', 'fade', 'fadeInline', 'elastic', 'scrollTop', 'scrollRight', 'scrollBottom', 'scrollLeft', 'scrollHorizontal','scrollVertical');
 $trselect = '<select name="transition">';
 foreach ($tr as $t) {
@@ -80,6 +75,12 @@ $template->set_var(array(
 								'TRANSITION' => $trselect,
 								'AUTOPLAY' => $autoplay?"checked='checked'":"",
 								'INTERVAL' => $interval,
+								'TEXT_DRAGDROP' => $MG['DRAGDROP'],
+								'TEXT_REFRESH' => $MG['REFRESH'],
+								'TEXT_DELETEALL' => $MG['DELETEALL'],
+								'TEXT_DELETESURE' => $MG['DELETESURE'],
+								'TEXT_UPLOADLIMIT' => $MG['UPLOADLIMIT'],
+								'UPLOAD_LIMIT' => $upload_limit,
 								'TEXT_SAVE' => $TEXT['SAVE'],
 								'TEXT_CANCEL' => $TEXT['CANCEL'],
 								'TEXT_MINIGALLERY' => $MG['MINIGALLERY'],
@@ -90,6 +91,7 @@ $template->set_var(array(
 								'TEXT_DESC' => $MG['DESCRIPTION'],
 								'TEXT_MAXSIZE' => $MG['MAXSIZE'],
 								'TEXT_MAXTHUMB' => $MG['MAXTHUMB'],
+								'TEXT_RETHUMB' => $MG['RETHUMB'],
 								'TEXT_RATIO' => $MG['RATIOTHUMB'],
 								'TEXT_ADDCLASS' => $MG['ADDCLASS'],
 								'TEXT_ADDREL' => $MG['ADDREL'],

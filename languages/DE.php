@@ -2,19 +2,19 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2
- * @author          Ruud Eisinga
+ * @package         minigallery v2.2
+ * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         2.0.2
- * @lastmodified    December 1, 2015
+ * @version         2.2.0
+ * @lastmodified    June 17, 2017
  *
  */
 
 
-$MG['MINIGALLERY'] = 'MiniGallery v2';
+$MG['MINIGALLERY'] = 'MiniGallery v2.2';
 $MG['SETTINGS'] = 'Einstellungen';
 $MG['UPLOAD'] = 'Bilder Hochladen';
 $MG['SUBTITLE'] = 'Kleine Bildergalerie zum einbinden in eine Seite';
@@ -22,6 +22,7 @@ $MG['NAME'] = 'Titel';
 $MG['DESCRIPTION'] = 'Beschreibung';
 $MG['MAXSIZE'] = 'Max. Bildgr&ouml;&szlig;e';
 $MG['MAXTHUMB'] = 'Max. Vorschaugr&ouml;&szlig;e';
+$MG['RETHUMB'] = 'Vorschaubilder neu erstellen';
 $MG['RATIOTHUMB'] = 'Quadratische Vorschaubilder.';
 $MG['ADDCLASS'] = 'CSS Klasse f&uuml;r Lightbox Effekt';
 $MG['ADDREL'] = 'Relation(rel) f&uuml;r Lightbox Effekt';
@@ -39,6 +40,11 @@ $MG['FILE'] = 'Dateiname';
 $MG['CURRENT'] = 'Bilder anzeigen';
 $MG['REMOVECUR'] = 'ALLE bisherigen Bilder vor dem hochladen entfernen?';
 $MG['UPLOADING'] = 'Lade und bearbeite Bilder, bitte warten...';
+$MG['DRAGDROP'] = 'Drag and drop deine Bilder';
+$MG['UPLOADLIMIT'] = 'Hinweis: Ihr Server-Upload-Limit ist auf {UPLOAD_LIMIT}Mb pro Bild konfiguriert ...';;
+$MG['REFRESH'] = 'Bildliste aktualisieren';
+$MG['DELETEALL'] = 'Alle Bilder löschen';
+$MG['DELETESURE'] = 'Sind Sie sicher, alle Bilder zu löschen?';
 
 $MG['LIGHTCASE'] = 'Lightcase Einstellungen';
 $MG['LIGHTCASESUB'] = ' - Lightcase funktioniert nur wenn Sie die Sripte oben aktiviert haben oder Sie Lightcase manuell in Ihr Template eingebunden haben. - ';

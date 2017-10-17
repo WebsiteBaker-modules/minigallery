@@ -2,19 +2,19 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2
- * @author          Ruud Eisinga
+ * @package         minigallery v2.2
+ * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         2.0.2
- * @lastmodified    December 1, 2015
+ * @version         2.2.0
+ * @lastmodified    June 17, 2017
  *
  */
 
 
-$MG['MINIGALLERY'] = 'MiniGallerij v2';
+$MG['MINIGALLERY'] = 'MiniGallerij v2.2';
 $MG['SETTINGS'] = 'Instellingen';
 $MG['UPLOAD'] = 'Upload Afbeeldingen';
 $MG['SUBTITLE'] = 'Mini afbeeldingen gallerij';
@@ -22,6 +22,7 @@ $MG['NAME'] = 'Titel';
 $MG['DESCRIPTION'] = 'Beschrijving';
 $MG['MAXSIZE'] = 'Max afbeeldingsgrootte';
 $MG['MAXTHUMB'] = 'Max thumb-grootte';
+$MG['RETHUMB'] = 'Thumbnails opnieuw genereren';
 $MG['RATIOTHUMB'] = 'Thumbnails vierkant maken';
 $MG['ADDCLASS'] = 'Toegevoegde CLASS voor lightbox';
 $MG['ADDREL'] = 'Toegevoegde REL voor lightbox';
@@ -39,6 +40,12 @@ $MG['FILE'] = 'Bestand';
 $MG['CURRENT'] = 'Huidige afbeeldingen';
 $MG['REMOVECUR'] = 'Verwijder voor de upload ALLE huidige afbeeldingen?';
 $MG['UPLOADING'] = 'Uploaden en herschalen, een ogenblik a.u.b...';
+$MG['DRAGDROP'] = 'Drag and drop uw afbeeldingen';
+$MG['UPLOADLIMIT'] = 'Let op: Uw server-upload-limiet staat geconfigureerd op {UPLOAD_LIMIT}Mb per afbeelding...';
+
+$MG['REFRESH'] = 'Afbeeldingen verversen';
+$MG['DELETEALL'] = 'Alle afbeeldingen verwijderen';
+$MG['DELETESURE'] = 'Weet u zeker dat u alle afbeeldingen wilt verwijderen?';
 
 
 $MG['LIGHTCASE'] = 'Lightcase instellingen';

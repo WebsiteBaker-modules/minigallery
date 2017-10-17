@@ -1,24 +1,25 @@
 <!-- BEGIN main_block -->
-<form action="{WB_URL}/modules/minigal2/save.php" method="post" onsubmit="$('#mgsettings-{SECTION_ID},#mgupload-{SECTION_ID},#mgimages-{SECTION_ID}').hide(); $('#mgwait-{SECTION_ID}').show();" enctype="multipart/form-data" >
-	<input type="hidden" name="page_id" value="{PAGE_ID}" />
-	<input type="hidden" name="section_id" value="{SECTION_ID}" />
 	<table style="width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ddd;"  cellpadding="3" cellspacing="0" border="0" >
 		<tr>
 			<td><h2>{TEXT_MINIGALLERY}</h2></td>
 			<td>
-				<a href="#" onclick=" $('#mgsettings-{SECTION_ID}').toggle();$('#mgupload-{SECTION_ID}  ,#mgimages-{SECTION_ID}').hide();return false;">{TEXT_SETTINGS}</a> | 
-				<a href="#" onclick=" $('#mgupload-{SECTION_ID}').toggle()  ;$('#mgsettings-{SECTION_ID},#mgimages-{SECTION_ID}').hide();return false;">{TEXT_UPLOAD}</a> | 
-				<a href="#" onclick=" $('#mgimages-{SECTION_ID}').toggle()  ;$('#mgupload-{SECTION_ID},#mgsettings-{SECTION_ID}').hide();return false;">{CURRENT}</a>
+				<a href="#" onclick=" $('#mgsettings-{SECTION_ID}').toggle();$('#mgdrop-{SECTION_ID},#mgimages-{SECTION_ID}').hide();return false;">{TEXT_SETTINGS}</a> | 
+				<a href="#" onclick=" $('#mgdrop-{SECTION_ID}').toggle()  	;$('#mgimages-{SECTION_ID},#mgsettings-{SECTION_ID}').hide();return false;">{TEXT_UPLOAD}</a> |
+				<a href="#" onclick=" $('#mgimages-{SECTION_ID}').toggle()  ;$('#mgdrop-{SECTION_ID},#mgsettings-{SECTION_ID}').hide();return false;">{CURRENT}</a>
 			</td>
 		</tr>
 	</table>
+	<form action="{WB_URL}/modules/minigal2/save.php" method="post" onsubmit="$('#mgsettings-{SECTION_ID},#mgupload-{SECTION_ID},#mgimages-{SECTION_ID}').hide(); $('#mgwait-{SECTION_ID}').show();" enctype="multipart/form-data" >
+	<input type="hidden" name="page_id" value="{PAGE_ID}" />
+	<input type="hidden" name="section_id" value="{SECTION_ID}" />
 	<table id="mgsettings-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" >
-		<tr><td colspan="3"><h2>{TEXT_MINIGALLERY} - {TEXT_SETTINGS}</h2></td></tr>
+		<tr><td colspan="3"><h2>{TEXT_SETTINGS}</h2></td></tr>
 		<tr><td>{TEXT_NAME}: </td><td><input size="50" type="text" name="name" value="{NAME}" /></td><td>{HELP_NAME}</td></tr>
 		<tr><td>{TEXT_DESC}: </td><td><textarea style="width:100%;height:100px;" name="description">{DESCRIPTION}</textarea></td><td>{HELP_DESC}</td></tr>
 		<tr><td>{TEXT_MAXSIZE}: </td><td><input style="max-width:55px" size="5" type="text" name="maxsize" value="{MAXSIZE}" />px </td><td>{HELP_MAXSIZE}</td></tr>
 		<tr><td>{TEXT_MAXTHUMB}: </td><td><input style="max-width:55px" size="5" type="text" name="thumbsize" value="{THUMBSIZE}" />px</td><td>{HELP_MAXTHUMB}</td></tr>
 		<tr><td>{TEXT_RATIO}: </td><td><input type="checkbox" name="ratio" {RATIO} /></td><td>{HELP_RATIO}</td></tr>
+		<tr><td>{TEXT_RETHUMB}: </td><td><input type="checkbox" name="rethumb" /></td><td></td></tr>
 		<tr><td>{TEXT_ADDCLASS}: </td><td><input type="text" name="class" value="{CLASS}" /></td><td>{HELP_ADDCLASS}</td></tr>
 		<tr><td>{TEXT_ADDREL}: </td><td><input type="text" name="rel" value="{REL}" /></td><td>{HELP_ADDREL}</td></tr>
 		<tr><td>{TEXT_ADDOUTPUT}: </td><td><input type="checkbox" name="addscripts" {ADDSCRIPTS} /> </td><td>{HELP_ADDOUTPUT}</td></tr>
@@ -32,41 +33,53 @@
 			<td colspan="2" align="right"><input type="button" value="{TEXT_CANCEL}" onclick="javascript: window.location = 'index.php';" style="width: 200px; margin-top: 5px;" /></td>
 		</tr>
 	</table>
-	<table id="mgupload-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
-		<tr><td colspan="4"><h2>{TEXT_MINIGALLERY} - {TEXT_UPLOAD}</h2></td></tr>
-		<tr><td colspan="4">{NOTE}</td></tr>
-		<tr><td colspan="4"><label>{REMOVECUR} <input type="checkbox" name="removecur" /></label></td></tr>
-		<tr>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-1" /></td>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-2" /></td>
-		</tr>
-		<tr>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-3" /></td>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-4" /></td>
-		</tr>
-		<tr>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-5" /></td>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-6" /></td>
-		</tr>
-		<tr>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-7" /></td>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-8" /></td>
-		</tr>
-		<tr>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-9" /></td>
-			<td>{FILE} </td><td><input size="50" type="file" name="image-10" /></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="left"><input type="submit" value="{TEXT_SAVE}" style="width: 200px; margin-top: 5px;" /></td>
-			<td colspan="2" align="right"><input type="button" value="{TEXT_CANCEL}" onclick="javascript: window.location = 'index.php';" style="width: 200px; margin-top: 5px;" /></td>
-		</tr>
-	</table>
+	</form>
 	<table id="mgimages-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
-		<tr><td ><h2>{TEXT_MINIGALLERY} - {CURRENT}</h2></td></tr>
-		<tr><td >{IMAGES}</td></tr>
+		<tr><td ><h2>{CURRENT} 
+		<span class="buttonright buttonred"><a href="#" id="delall-{SECTION_ID}">{TEXT_DELETEALL}</a></span>
+		<span class="buttonright"><a href="#" id="reload-{SECTION_ID}">{TEXT_REFRESH}</a></span>
+		</h2></td></tr>
+		<tr><td id="img-{SECTION_ID}">{IMAGES}</td></tr>
 	</table>
+	<div id="mgdrop-{SECTION_ID}" style="display:none;width: 98%;padding:1%;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
+		<h2>{TEXT_UPLOAD}</h2>
+		<strong>{TEXT_DRAGDROP}</strong><br><em>{TEXT_UPLOADLIMIT}</em>
+		<form class="dropzone" action="{WB_URL}/modules/minigal2/ajax.php" method="post" >
+			<input type="hidden" name="function" value="upload" />
+			<input type="hidden" name="page_id" value="{PAGE_ID}" />
+			<input type="hidden" name="section_id" value="{SECTION_ID}" />
+		</form>
+	</div>
 	<table id="mgwait-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
 		<tr><td ><strong>{UPLOADING}</strong></td></tr>
 	</table>
-</form>
+	<script>
+	function init{SECTION_ID}() {
+		$('.del-{SECTION_ID}').click(function(event){
+			elem = $(this);
+			var filename = elem.data('filename');
+			$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "delete" , file: filename } ).done(function( data ) {
+				elem.parent().hide(300);
+			});
+		});
+	}
+	$("#reload-{SECTION_ID}").click(function(event){
+		event.preventDefault();
+		$('#img-{SECTION_ID}').hide();
+		$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "reload" } ).done(function( data ) {
+			$('#img-{SECTION_ID}').html(data).show(300);
+			init{SECTION_ID}();
+		});
+	});	
+	$("#delall-{SECTION_ID}").click(function(event){
+		event.preventDefault();
+		if(confirm('{TEXT_DELETESURE}')) {
+			$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "deleteall" } ).done(function( data ) {
+				$('#img-{SECTION_ID}').html(data).show(300);
+				init{SECTION_ID}();
+			});
+		}
+	});
+	init{SECTION_ID}();
+	</script>	
 <!-- END main_block -->

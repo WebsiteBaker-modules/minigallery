@@ -26,3 +26,8 @@
 #lightcase-nav a, #lightcase-nav a:hover {
 	text-decoration: none;
 }
+
+.mgjustified {
+	height: 0px;
+	overflow: hidden;
+}

@@ -2,14 +2,14 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2
- * @author          Ruud Eisinga
+ * @package         minigallery v2.2
+ * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.2.2 and higher
- * @version         2.1.0
- * @lastmodified    Januari 25, 2015
+ * @version         2.2.0
+ * @lastmodified    June 17, 2017
  *
  */
 
@@ -32,6 +32,19 @@ if (!function_exists('getMiniGalleryImages')) {
 		$d->close();
 		asort($retval);
 		return $retval;
+	}
+}
+
+if (!function_exists('getMiniGalleryImageList')) {
+	function getMiniGalleryImageList($basedir,$curdir,$baseurl,$sid) {
+		$images = getMiniGalleryImages($basedir,$curdir); 
+		$imglist = '';
+		if($images) {
+			foreach($images as $img) { 
+				$imglist .= '<span class="imgholder"><img class="mgthumb" src="'.$baseurl.$curdir.'thumbs/'.basename($img['file']).'" alt="'.$baseurl.$curdir.basename($img['file']).'" title="'.$baseurl.$curdir.basename($img['file']).'"><img class="delete del-'.$sid.'" data-filename="'.basename($img['file']).'" src="'.WB_URL.'/modules/minigal2/delete.png" /></span>'; 
+			} 
+		}
+		return $imglist;	
 	}
 }
 
@@ -97,17 +110,17 @@ if (!function_exists('minigallery_resize_image')) {
 		switch ( $info[2] ) {
 		  case IMAGETYPE_GIF:
 			$image = imagecreatefromgif($source);
-			break;
+		  break;
 		  case IMAGETYPE_JPEG:
 			$image = imagecreatefromjpeg($source);
-			break;
+		  break;
 		  case IMAGETYPE_PNG:
 			$image = imagecreatefrompng($source);
-			break;
+		  break;
 		  default:
 			return false;
 		}
-		
+
 		$dest_img = imagecreatetruecolor($new_w,$new_h);
 		   
 		if ( ($info[2] == IMAGETYPE_GIF) || ($info[2] == IMAGETYPE_PNG) ) {
@@ -133,7 +146,7 @@ if (!function_exists('minigallery_resize_image')) {
 			imagegif($dest_img, $output_file);
 		  break;
 		  case IMAGETYPE_JPEG:
-			imagejpeg($dest_img, $output_file);
+			imagejpeg($dest_img, $output_file,90);
 		  break;
 		  case IMAGETYPE_PNG:
 			imagepng($dest_img, $output_file);
@@ -155,24 +168,71 @@ if (!function_exists('isImageFile')) {
 	}
 }
 
-function minigallery_image_fix_orientation($filename) {
-    $exif = exif_read_data($filename);
-    if (!empty($exif['Orientation'])) {
-        $image = imagecreatefromjpeg($filename);
-        switch ($exif['Orientation']) {
-            case 3:
-                $image = imagerotate($image, 180, 0);
-                break;
+if (!function_exists('minigallery_image_fix_orientation')) {
+	function minigallery_image_fix_orientation($filename) {
+		$exif = @exif_read_data($filename);
+		if (!empty($exif['Orientation'])) {
+			$image = imagecreatefromjpeg($filename);
+			switch ($exif['Orientation']) {
+				case 3:
+					$image = imagerotate($image, 180, 0);
+					break;
 
-            case 6:
-                $image = imagerotate($image, -90, 0);
-                break;
+				case 6:
+					$image = imagerotate($image, -90, 0);
+					break;
 
-            case 8:
-                $image = imagerotate($image, 90, 0);
-                break;
-        }
+				case 8:
+					$image = imagerotate($image, 90, 0);
+					break;
+			}
 
-        imagejpeg($image, $filename, 90);
-    }
+			imagejpeg($image, $filename, 90);
+		}
+	}
+}
+
+if (!function_exists('minigallery_save_upload')) {
+	function minigallery_save_upload ($fieldname, $resize = 0, $thumbsize = 0, $ratio, $pathToFolder, $thumbFolder, $overwrite = false, &$message) {
+		$message = '';
+		if(isset($_FILES[$fieldname]['tmp_name']) AND $_FILES[$fieldname]['tmp_name'] != '') {
+			$filename = $_FILES[$fieldname]['name'];
+
+			$path_parts = pathinfo($filename);
+			$fileext = strtolower($path_parts['extension']);
+
+			$new_filename = $pathToFolder.$filename;
+			$thumb_filename = $thumbFolder.$filename;
+			
+			// Make sure the image is a jpg or png file
+			if(!isImageFile($_FILES[$fieldname]['tmp_name'])) {
+				$message = "Error: ".$filename. ' is invalid. Only .jpg, .gif or .png is allowed!';
+				return false;
+			}
+
+			if (file_exists($new_filename) && !$overwrite) {
+				$message = "Error: ".$filename. ' already exists!';
+				return false;
+			} else {
+				$message = "Saving: ".$filename. '';
+				move_uploaded_file($_FILES[$fieldname]['tmp_name'], $new_filename);
+				change_mode($new_filename);
+				if (file_exists($new_filename)) {
+					minigallery_resize_image( $new_filename, $new_filename, $resize, 0);
+					minigallery_resize_image( $new_filename, $thumb_filename, $thumbsize, $ratio, true);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
+if (!function_exists('minigallery_get_upload_limit')) {
+	function minigallery_get_upload_limit() {
+		$max_upload = (int)(ini_get('upload_max_filesize'));
+		$max_post = (int)(ini_get('post_max_size'));
+		$memory_limit = (int)(ini_get('memory_limit'));
+		$upload_mb = min($max_upload, $max_post, $memory_limit);
+		return $upload_mb;
+	}
 }
