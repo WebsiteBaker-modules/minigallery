@@ -1,3 +1,43 @@
+2018/03/11 - v2.5.0
+Feature: Implementation of new hooks and new setting to stop lightcase process before showing loaded content
+
+2018/02/27 - v2.4.4
+Cleanup: Updated version number
+
+2018/02/27 - v2.4.3
+Feature: New parameter for function resize to pass dimensions
+Feature: Support touch events for jQuery version 3.x
+
+2017/11/24 - v2.4.2
+Feature: New argument for resize function to start the inTransition afterwards
+Bugfix: Fix error inside _calculateDimensions when $object is not defined
+
+2017/11/23 - v2.4.1
+Bugfix: Fix resize issue with maxWidth
+Bugfix: Issue #128: Improved _getFileUrlSuffix function to get the suffix of files from external urls
+Bugfix: Issue #116: add X-Ajax-Location check
+
+2017/04/09 - v2.4.0
+Feature: Improve external video resize handling using a new setting 'fixedRatio'
+Feature: Add compiled css file without breakpoint
+Bugfix: Fix couple of browser issues with several content types
+Feature: Issue #69 - Autodetect the right video format supported by the browser
+Feature: Issue #96 - Allow more possibilities to define transitions
+Bugfix: Issue #122 - Improve dimension handling using forceWidth and forceHeight
+Bugfix: Fix fade in issue with inner content
+Feature: Issue #114 - Possibility to initialize lightcase collections with different tag attribute values
+
+2016/12/20 - v2.3.6
+Hotfix: Fix scroll position after scrolling lightcase content on mobile
+
+2016/12/20 - v2.3.5
+Bugfix: Issue #98 - Fix bug with internal matchMedia function call
+Bugfix: Issue #97 - Closing Lightcase on mobile forces site to top of page
+Feature: Support for jQuery version 3.x.x
+Feature: Issue #84 - Add the option to override all the configurations from within the HTML
+Bugfix: Issue #50 - Iframe is not scrolling on all iDevices
+Feature: Issue #48 - Added new option slideshowAutostart
+
 2015/12/29 - v2.3.4
 Bugfix: Issue #47 - Fixed wrong break statement which crashed in transition
 

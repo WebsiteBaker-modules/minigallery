@@ -2,21 +2,24 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2.2
+ * @package         minigallery v2.5
  * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
- * @requirements    PHP 5.2.2 and higher
- * @version         2.2.0
- * @lastmodified    June 17, 2017
+ * @requirements    PHP 5.6 and higher
+ * @version         2.5.1
+ * @lastmodified    March 28, 2018 
  *
  */
 
 if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
-$basedir = WB_PATH.MEDIA_DIRECTORY.'/minigal2/';
-$baseurl = WB_URL.MEDIA_DIRECTORY.'/minigal2/';
-require_once ('functions.php');
+require(dirname(__FILE__).'/info.php');
+$basedir = WB_PATH.MEDIA_DIRECTORY.'/'.$image_path.'/';
+$baseurl = WB_URL.MEDIA_DIRECTORY.'/'.$image_path.'/';
+require_once (dirname(__FILE__).'/functions.php');
+minigallery_create_dir($section_id);
+
 if(!file_exists(WB_PATH.'/modules/minigal2/languages/'.LANGUAGE.'.php')) {
 	require_once(WB_PATH.'/modules/minigal2/languages/EN.php');
 } else {
@@ -36,7 +39,9 @@ $name = ($settings['name']);
 $description = ($settings['description']);
 $addscripts = ($settings['addscripts']);
 $maxsize = ($settings['maxsize']);
+$maxheight = ($settings['maxheight']);
 $thumbsize = $settings['thumbsize'];
+$thumbheight = $settings['thumbheight'];
 $ratio = $settings['ratio'];
 $class = $settings['class'];
 $rel = $settings['rel'];
@@ -68,7 +73,9 @@ $template->set_var(array(
 								'DESCRIPTION' => $description,
 								'ADDSCRIPTS' => $addscripts?"checked='checked'":"",
 								'MAXSIZE' => $maxsize,
+								'MAXHEIGHT' => $maxheight,
 								'THUMBSIZE' => $thumbsize,
+								'THUMBHEIGHT' => $thumbheight,
 								'RATIO' => $ratio?"checked='checked'":"",
 								'CLASS' => $class,
 								'REL' => $rel,
@@ -79,8 +86,13 @@ $template->set_var(array(
 								'TEXT_REFRESH' => $MG['REFRESH'],
 								'TEXT_DELETEALL' => $MG['DELETEALL'],
 								'TEXT_DELETESURE' => $MG['DELETESURE'],
+								'TEXT_DELETEONE' => $MG['DELETEONE'],
+								'TEXT_YES' => $MG['YES'],
+								'TEXT_NO' => $MG['NO'],
+								'TEXT_CAPTION' => $MG['CAPTION'],
 								'TEXT_UPLOADLIMIT' => $MG['UPLOADLIMIT'],
 								'UPLOAD_LIMIT' => $upload_limit,
+								'TEXT_SORT' => $MG['SORT'],
 								'TEXT_SAVE' => $TEXT['SAVE'],
 								'TEXT_CANCEL' => $TEXT['CANCEL'],
 								'TEXT_MINIGALLERY' => $MG['MINIGALLERY'],

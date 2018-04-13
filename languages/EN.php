@@ -2,19 +2,19 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2.2
+ * @package         minigallery v2.5
  * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
- * @requirements    PHP 5.2.2 and higher
- * @version         2.2.0
- * @lastmodified    June 17, 2017
+ * @requirements    PHP 5.6 and higher
+ * @version         2.5.0
+ * @lastmodified    January 9, 2018
  *
  */
 
 
-$MG['MINIGALLERY'] = 'MiniGallery v2.2';
+$MG['MINIGALLERY'] = 'MiniGallery';
 $MG['SETTINGS'] = 'Settings';
 $MG['UPLOAD'] = 'Upload Images';
 $MG['SUBTITLE'] = 'ImageGallery';
@@ -42,9 +42,15 @@ $MG['REMOVECUR'] = 'Remove ALL current images before upload?';
 $MG['UPLOADING'] = 'Uploading and resizing, please wait...';
 $MG['DRAGDROP'] = 'Drag and drop your images';
 $MG['UPLOADLIMIT'] = 'Note: Your server upload limit is configured to {UPLOAD_LIMIT}Mb per image...';
+$MG['SORT'] = '(Sort by drag & drop)';
 $MG['REFRESH'] = 'Refresh images';
 $MG['DELETEALL'] = 'Delete all images';
 $MG['DELETESURE'] = 'Are you sure to delete all images?';
+
+$MG['DELETEONE'] = 'Are you sure to delete this image?';
+$MG['YES'] = 'Yes';
+$MG['NO'] = 'No';
+$MG['CAPTION'] = 'Image caption';
 
 $MG['LIGHTCASE'] = 'Lightcase settings';
 $MG['LIGHTCASESUB'] = ' - Only used when the lightcase scripts are enabled - ';

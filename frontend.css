@@ -1,25 +1,25 @@
-.minigallery { /* main container per gallery */
-	margin: 0 0 10px 0;
-}
-.minigallery h1 { /* title - if added */
-	font-size: 18px;
-}
-.minigallery .mgdescription {
-	font-style: italic;
-	margin: 10px 0;
-}
 
-.minigallery .mgimages { /* the images container. */
-
+.flex-images { overflow: hidden; position: relative; }
+.flex-images .item { float: left; margin: 5px; background: #eee; box-sizing: content-box; overflow: hidden; position: relative;  }
+.flex-images .item img { display: block; width: auto; height: 100%; max-width: none; }
+.flex-images .item .caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 4px 6px; font-size: 13px; color: #fff; background: #222; background: rgba(0,0,0,.7); }
+.flex-images .item .caption { 
+	-webkit-transform: scaleY(0);
+	-o-transform: scaleY(0);
+	-ms-transform: scaleY(0);
+	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	-o-transform-origin: bottom;
+	-ms-transform-origin: bottom;
+	transform-origin: bottom;
+	-webkit-transition: -webkit-transform 0.26s ease-out;
+	-o-transition: -o-transform 0.26s ease;
+	-ms-transition: -ms-transform 0.26s ease;
+	transition: transform 0.26s ease;
 }
-.minigallery a {	/* the thumbnail images, floating left to position them next to eachother */
-	position: relative;
-	float: left;
-}
-.minigallery img {	/* the thumbnails could be styled and positioned here */
-	border:1px solid #fff; 
-	margin:0 2px 5px 0 ;
-}
-.minigallery .clr { /* used to clear the floating images */
-	clear:both;
+.flex-images .item:hover .caption { 
+	-webkit-transform: scaleY(1);
+	-o-transform: scaleY(1);
+	-ms-transform: scaleY(1);
+	transform: scaleY(1);
 }

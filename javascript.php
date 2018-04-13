@@ -2,45 +2,35 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2.2
+ * @package         minigallery v2.5
  * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
- * @requirements    PHP 5.2.2 and higher
- * @version         2.2.0
- * @lastmodified    June 17, 2017
+ * @requirements    PHP 5.6 and higher
+ * @version         2.5.1
+ * @lastmodified    March 28, 2018 
  *
  */
- 
+
 // Note: use the $class or $rel variables to build the selector 
 
-if(!defined('MG2_SCRIPTS_ADDED')) {
-if ($ratio == '0') { // load justify plugin
-?>
-<script type="text/javascript" src="<?php echo WB_URL ?>/modules/minigal2/justified/js/jquery.justifiedGallery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo WB_URL ?>/modules/minigal2/justified/css/justifiedGallery.min.css" media="screen" />
-<?php 
-}
+if($addscripts && !defined('MG2_SCRIPTS_ADDED')) {
+	if(!defined('MG2_SCRIPTS_ADDED')) define ('MG2_SCRIPTS_ADDED',true); //Prevent multiple adding of jQuery and lightcase
 ?> 
 <script type="text/javascript" src="<?php echo WB_URL ?>/modules/minigal2/lightcase/src/js/lightcase.js"></script>
 <script type="text/javascript" src="<?php echo WB_URL ?>/modules/minigal2/lightcase/vendor/jQuery/jquery.events.touch.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo WB_URL ?>/modules/minigal2/lightcase/src/css/lightcase.css" media="screen" />
- <?php } ?>
+<?php } ?>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	<?php if ($ratio == '0') { ?>
-	$("#mg<?php echo $section_id ?>").justifiedGallery({
-		rowHeight : <?php echo $thumbsize / 1.6 ?>,
-		maxRowHeight : <?php echo $thumbsize  ?>,
-		lastRow : 'nojustify',
-		margins : 4,
-		waitThumbnailsLoad : false
-	});
-	<?php } ?>
+	new flexImages({ selector: '#mg<?php echo $section_id ?>', rowHeight: <?php echo $thumbheight ?> });
+<?php if ($addscripts) { ?>
 	$('a.sec-<?php echo $section_id ?>[data-rel^=lightcase]').lightcase({
 		swipe: true,
 		transition: '<?php echo ($transition) ?>',
+		transitionOpen: 'elastic',
+		transitionClose: 'elastic',
 		speedIn: 500,
 		speedOut: 500,
 		maxWidth: 2000,
@@ -51,5 +41,6 @@ jQuery(document).ready(function($) {
 		showSequenceInfo: false,
 		showTitle: false
 	});
+<?php } ?>
 });
 </script>

@@ -1,5 +1,5 @@
 <!-- BEGIN main_block -->
-	<table style="width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ddd;"  cellpadding="3" cellspacing="0" border="0" >
+	<table style="width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;"  cellpadding="3" cellspacing="0" border="0" >
 		<tr>
 			<td><h2>{TEXT_MINIGALLERY}</h2></td>
 			<td>
@@ -12,14 +12,14 @@
 	<form action="{WB_URL}/modules/minigal2/save.php" method="post" onsubmit="$('#mgsettings-{SECTION_ID},#mgupload-{SECTION_ID},#mgimages-{SECTION_ID}').hide(); $('#mgwait-{SECTION_ID}').show();" enctype="multipart/form-data" >
 	<input type="hidden" name="page_id" value="{PAGE_ID}" />
 	<input type="hidden" name="section_id" value="{SECTION_ID}" />
-	<table id="mgsettings-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" >
+	<table id="mgsettings-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ccc;" cellpadding="3" cellspacing="3" border="0" >
 		<tr><td colspan="3"><h2>{TEXT_SETTINGS}</h2></td></tr>
 		<tr><td>{TEXT_NAME}: </td><td><input size="50" type="text" name="name" value="{NAME}" /></td><td>{HELP_NAME}</td></tr>
 		<tr><td>{TEXT_DESC}: </td><td><textarea style="width:100%;height:100px;" name="description">{DESCRIPTION}</textarea></td><td>{HELP_DESC}</td></tr>
-		<tr><td>{TEXT_MAXSIZE}: </td><td><input style="max-width:55px" size="5" type="text" name="maxsize" value="{MAXSIZE}" />px </td><td>{HELP_MAXSIZE}</td></tr>
-		<tr><td>{TEXT_MAXTHUMB}: </td><td><input style="max-width:55px" size="5" type="text" name="thumbsize" value="{THUMBSIZE}" />px</td><td>{HELP_MAXTHUMB}</td></tr>
-		<tr><td>{TEXT_RATIO}: </td><td><input type="checkbox" name="ratio" {RATIO} /></td><td>{HELP_RATIO}</td></tr>
-		<tr><td>{TEXT_RETHUMB}: </td><td><input type="checkbox" name="rethumb" /></td><td></td></tr>
+		<tr><td>{TEXT_MAXSIZE}: </td><td><input style="max-width:55px" size="5" type="text" name="maxsize" value="{MAXSIZE}" /> x <input style="max-width:55px" size="5" type="text" name="maxheight" value="{MAXHEIGHT}" />px </td><td>{HELP_MAXSIZE}</td></tr>
+		<tr><td>{TEXT_MAXTHUMB}: </td><td><input id="thumbsize" style="max-width:55px" size="5" type="text" name="thumbsize" value="{THUMBSIZE}" />px </td><td>{HELP_MAXTHUMB}</td></tr>
+		<tr><td>{TEXT_RATIO}: </td><td><input id="ratio" type="checkbox" name="ratio" {RATIO} /></td><td>{HELP_RATIO}</td></tr>
+		<tr><td>{TEXT_RETHUMB}: </td><td><input id="rethumb" type="checkbox" name="rethumb" /></td><td></td></tr>
 		<tr><td>{TEXT_ADDCLASS}: </td><td><input type="text" name="class" value="{CLASS}" /></td><td>{HELP_ADDCLASS}</td></tr>
 		<tr><td>{TEXT_ADDREL}: </td><td><input type="text" name="rel" value="{REL}" /></td><td>{HELP_ADDREL}</td></tr>
 		<tr><td>{TEXT_ADDOUTPUT}: </td><td><input type="checkbox" name="addscripts" {ADDSCRIPTS} /> </td><td>{HELP_ADDOUTPUT}</td></tr>
@@ -34,14 +34,14 @@
 		</tr>
 	</table>
 	</form>
-	<table id="mgimages-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
-		<tr><td ><h2>{CURRENT} 
+	<table id="mgimages-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ccc;" cellpadding="3" cellspacing="3" border="0" width="100%">
+		<tr><td ><h2>{CURRENT} <span class="smaller">{TEXT_SORT}</span>
 		<span class="buttonright buttonred"><a href="#" id="delall-{SECTION_ID}">{TEXT_DELETEALL}</a></span>
 		<span class="buttonright"><a href="#" id="reload-{SECTION_ID}">{TEXT_REFRESH}</a></span>
 		</h2></td></tr>
 		<tr><td id="img-{SECTION_ID}">{IMAGES}</td></tr>
 	</table>
-	<div id="mgdrop-{SECTION_ID}" style="display:none;width: 98%;padding:1%;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
+	<div id="mgdrop-{SECTION_ID}" style="display:none;width: 98%;padding:1%;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ccc;" cellpadding="3" cellspacing="3" border="0" width="100%">
 		<h2>{TEXT_UPLOAD}</h2>
 		<strong>{TEXT_DRAGDROP}</strong><br><em>{TEXT_UPLOADLIMIT}</em>
 		<form class="dropzone" action="{WB_URL}/modules/minigal2/ajax.php" method="post" >
@@ -50,7 +50,7 @@
 			<input type="hidden" name="section_id" value="{SECTION_ID}" />
 		</form>
 	</div>
-	<table id="mgwait-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#eee;" cellpadding="3" cellspacing="3" border="0" width="100%">
+	<table id="mgwait-{SECTION_ID}" style="display:none;width: 100%;padding:10px;box-shadow:0 0 1px #111;border:0px solid #303641; background:#ccc;" cellpadding="3" cellspacing="3" border="0" width="100%">
 		<tr><td ><strong>{UPLOADING}</strong></td></tr>
 	</table>
 	<script>
@@ -58,8 +58,26 @@
 		$('.del-{SECTION_ID}').click(function(event){
 			elem = $(this);
 			var filename = elem.data('filename');
-			$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "delete" , file: filename } ).done(function( data ) {
-				elem.parent().hide(300);
+			doConfirm('{TEXT_DELETEONE}',filename,function(response) {
+				if(response) {
+					$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "delete" , file: filename } ).done(function( data ) {
+						elem.parent().hide(300);
+					});
+				}
+			});
+		});
+		$('.edit-{SECTION_ID}').click(function(event){
+			elem = $(this);
+			var filename = elem.data('filename');
+			var caption = elem.data('caption');
+			doPrompt(caption,filename,function(response) {
+				if(response) {
+					console.log('This is your response: '+response);
+					$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "caption" , file: filename, caption: response } ).done(function( data ) {
+						$('#img-{SECTION_ID}').html(data).show(300);
+						init{SECTION_ID}();
+					});
+				}
 			});
 		});
 	}
@@ -73,13 +91,47 @@
 	});	
 	$("#delall-{SECTION_ID}").click(function(event){
 		event.preventDefault();
-		if(confirm('{TEXT_DELETESURE}')) {
-			$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "deleteall" } ).done(function( data ) {
-				$('#img-{SECTION_ID}').html(data).show(300);
-				init{SECTION_ID}();
-			});
-		}
+		doConfirm('{TEXT_DELETESURE}','',function(response) {
+			if(response) {
+				$.post( "{WB_URL}/modules/minigal2/ajax.php", { section_id: "{SECTION_ID}", function: "deleteall" } ).done(function( data ) {
+					$('#img-{SECTION_ID}').html(data).show(300);
+					init{SECTION_ID}();
+				});
+			}
+		});
 	});
 	init{SECTION_ID}();
+	
+	// https://limonte.github.io/sweetalert2/
+	function doConfirm(sTitle,filename,response) {
+		swal({
+		  html: '<strong>'+sTitle+'</strong><br>'+filename,
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "{TEXT_YES}",
+		  cancelButtonText: "{TEXT_NO}",
+		  closeOnConfirm: true,
+		  reverseButtons: true
+		}).then(function(){
+			response (true);
+		});
+	}
+	function doPrompt(cCaption,filename,response) {
+		swal({
+		  html: '<strong>{TEXT_CAPTION}</strong><br>'+filename,
+		  type: "info",
+		  input: "text",
+		  width: "700px",
+		  inputValue: cCaption,
+		  showCancelButton: true,
+		  confirmButtonText: "{TEXT_SAVE}",
+		  cancelButtonText: "{TEXT_CANCEL}",
+		  closeOnConfirm: true,
+		  reverseButtons: true
+		}).then(function(inputValue){
+			response (inputValue);
+		});
+	}
 	</script>	
 <!-- END main_block -->

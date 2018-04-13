@@ -2,16 +2,17 @@
 /**
  *
  * @category        modules
- * @package         minigallery v2.2
+ * @package         minigallery v2.5
  * @author          Dev4me / Ruud Eisinga
  * @link			http://www.allwww.nl/
  * @license         http://www.gnu.org/licenses/gpl.html
  * @platform        WebsiteBaker 2.8.x
- * @requirements    PHP 5.2.2 and higher
- * @version         2.2.0
- * @lastmodified    June 17, 2017
+ * @requirements    PHP 5.6 and higher
+ * @version         2.5.1
+ * @lastmodified    March 28, 2018 
  *
  */
+
 
 require('../../config.php');
 require_once (WB_PATH.'/framework/functions.php');
@@ -19,7 +20,9 @@ require_once ('functions.php');
 require(WB_PATH.'/modules/admin.php');
 $update_when_modified = true; 
 set_time_limit ( 600 );
-$basedir = WB_PATH.MEDIA_DIRECTORY.'/minigal2/';
+require(dirname(__FILE__).'/info.php');
+$basedir = WB_PATH.MEDIA_DIRECTORY.'/'.$image_path.'/';
+$baseurl = WB_URL.MEDIA_DIRECTORY.'/'.$image_path.'/';
 $pathToFolder = $basedir.$section_id.'/';
 $thumbFolder = $pathToFolder.'thumbs/';
 $overwrite = true;
@@ -27,6 +30,7 @@ $message = '';
 
 if(isset($_POST['section_id'])) {
 	$maxsize = intval($_POST['maxsize']);
+	$maxheight = intval($_POST['maxheight']);
 	$thumbsize = intval($_POST['thumbsize']);
 	$class = $admin->add_slashes(strip_tags($_POST['class']));
 	$rel = $admin->add_slashes(strip_tags($_POST['rel']));
@@ -45,6 +49,7 @@ if(isset($_POST['section_id'])) {
 			`description` = '$description', 
 			`addscripts` = '$addscripts', 
 			`maxsize` = '$maxsize', 
+			`maxheight` = '$maxheight', 
 			`thumbsize` = '$thumbsize', 
 			`ratio` = '$ratio', 
 			`class` = '$class', 
@@ -63,14 +68,6 @@ if(isset($_POST['section_id'])) {
 	if ($rethumb) rm_full_dir($thumbFolder);
 	make_dir($pathToFolder);
 	make_dir($thumbFolder);
-	
-	for($count = 1; $count <= 10; $count++) {
-		minigallery_save_upload ( 'image-'.$count, $maxsize , $thumbsize, $ratio, $pathToFolder, $thumbFolder, $overwrite, $message ) ;
-		
-		if ($message) {
-			echo '<br/>'.$message;
-		}
-	}
 }
 
 // Check if there is a database error, otherwise say successful
